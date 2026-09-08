@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>SUNCHASER OPEN WORLD R10 — Share Edition</title>
+<title>SUNCHASER OPEN WORLD R12 — Logo Edition</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M38 30 A18 18 0 0 1 60 30 Z' fill='%23ff6a4d'/%3E%3Crect x='4' y='30' width='56' height='6' rx='3' fill='%23ffb454'/%3E%3Cpath d='M8 30 L12 21 L26 19 L32 10 L48 10 L54 20 L58 26 L58 30 Z' fill='%23f7efe4'/%3E%3Ccircle cx='22' cy='30' r='4.5' fill='%231a1216'/%3E%3Ccircle cx='45' cy='30' r='4.5' fill='%231a1216'/%3E%3Crect x='2' y='18' width='10' height='3' rx='1.5' fill='%2339d8c2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -26,9 +27,13 @@ input[type=range]{ width:100%; accent-color:var(--amber); height:18px; }
 .hiddenOv{ display:none !important; }
 #menu{ background:rgba(8,6,10,.42); }
 #menuCol{ position:absolute; left:44px; top:50%; transform:translateY(-50%); width:392px; display:flex; flex-direction:column; gap:14px; }
+/* ---- R12 logo ---- */
+#logo{ width:210px; margin:-4px 0 0; }
+#logo svg,#loadLogo svg{ display:block; width:100%; height:auto; filter:drop-shadow(0 6px 18px rgba(0,0,0,.55)); }
+#loadLogo{ width:140px; margin:0 auto 18px; }
 #mTitle{ font:700 64px/0.95 Rajdhani; letter-spacing:.06em; margin:0; text-shadow:0 6px 30px rgba(0,0,0,.7); }
 #mTitle span{ color:var(--amber); }
-#mTag{ font-size:12px; letter-spacing:.42em; color:var(--teal); margin-bottom:6px; }
+#mTag{ font-size:12px; letter-spacing:.42em; color:var(--teal); margin:-6px 0 0; }
 .locCard{ display:flex; gap:14px; align-items:center; padding:12px; border:1px solid rgba(255,255,255,.14); border-radius:6px; background:rgba(14,12,16,.66); cursor:pointer; transition:border-color .15s, background .15s; }
 .locCard:hover{ border-color:rgba(255,180,84,.5); }
 .locCard.sel{ border-color:var(--amber); background:rgba(40,26,14,.72); }
@@ -137,6 +142,15 @@ input[type=range]{ width:100%; accent-color:var(--amber); height:18px; }
 #ttTime{ font:700 40px Rajdhani; color:var(--amber); letter-spacing:.06em; margin:6px 0 14px; }
 .resRow{ display:flex; justify-content:space-between; gap:50px; font-size:13px; letter-spacing:.14em; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.09); }
 .resRow b{ font:600 15px Rajdhani; }
+/* ---- update panel ---- */
+#update{ z-index:50; background:rgba(8,6,10,.82); }
+#updBadge{ display:inline-block; font:700 12px Rajdhani; letter-spacing:.3em; color:#0d1a18; background:var(--teal); padding:4px 14px; border-radius:3px; margin-bottom:10px; }
+#updTitle{ margin:0 0 4px !important; }
+#updVer{ font:700 22px Rajdhani; color:var(--amber); letter-spacing:.1em; margin-bottom:14px; }
+#updNotes{ text-align:left; margin:0 auto 20px; max-width:360px; }
+.updRow{ font:600 14px Rajdhani; letter-spacing:.08em; color:var(--text); padding:6px 0 6px 18px; border-bottom:1px solid rgba(255,255,255,.08); position:relative; }
+.updRow:before{ content:'+'; position:absolute; left:0; color:var(--teal); font-weight:700; }
+#updReq{ font-size:10px; letter-spacing:.24em; color:var(--coral); margin-top:14px; }
 </style>
 </head>
 <body>
@@ -146,10 +160,35 @@ input[type=range]{ width:100%; accent-color:var(--amber); height:18px; }
 
 <div id="menu" class="overlay">
   <div id="menuCol">
-    <div>
-      <div id="mTag">OPEN WORLD SANDBOX &middot; SHARE EDITION</div>
-      <h1 id="mTitle">SUNCHASER <span>OW</span></h1>
+    <div id="logo" title="SUNCHASER">
+      <svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgSunA" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#ff5148"/><stop offset="1" stop-color="#ffb454"/>
+          </linearGradient>
+        </defs>
+        <g stroke="#ffb454" stroke-width="6" stroke-linecap="round" opacity="0.55">
+          <line x1="170" y1="36" x2="170" y2="20"/>
+          <line x1="205" y1="49" x2="216" y2="38"/>
+          <line x1="135" y1="49" x2="124" y2="38"/>
+        </g>
+        <path d="M124 104 A46 46 0 0 1 216 104 Z" fill="url(#lgSunA)"/>
+        <rect x="14" y="104" width="212" height="7" rx="3.5" fill="#ffb454"/>
+        <g stroke="#39d8c2" stroke-width="5" stroke-linecap="round" opacity="0.8">
+          <line x1="10" y1="84" x2="34" y2="84"/>
+          <line x1="2" y1="95" x2="42" y2="95"/>
+          <line x1="14" y1="117" x2="30" y2="117"/>
+        </g>
+        <path d="M50 104 L54 90 L70 86 L82 70 L112 66 L126 82 L142 88 L156 92 L158 104 Z" fill="#f7efe4"/>
+        <path d="M84 84 L88 72 L110 70 L120 82 Z" fill="#1a1216"/>
+        <circle cx="72" cy="104" r="10" fill="#1a1216"/>
+        <circle cx="134" cy="104" r="10" fill="#1a1216"/>
+        <circle cx="72" cy="104" r="4" fill="#f7efe4"/>
+        <circle cx="134" cy="104" r="4" fill="#f7efe4"/>
+      </svg>
     </div>
+    <h1 id="mTitle">SUNCHASER <span>OW</span></h1>
+    <div id="mTag">OPEN WORLD SANDBOX &middot; LIVE UPDATES</div>
     <div class="locCard" id="cardHor">
       <canvas id="pvHor" width="104" height="76"></canvas>
       <div><h3>HORIZON FESTIVAL</h3><p>Coastal highway loop &middot; festival stage &middot; canyon dirt &middot; neon arches</p></div>
@@ -224,7 +263,39 @@ input[type=range]{ width:100%; accent-color:var(--amber); height:18px; }
   </div>
 </div>
 
-<div id="load" class="center hiddenOv"><div id="loadTxt">LOADING</div></div>
+<div id="load" class="center hiddenOv">
+  <div style="text-align:center;">
+    <div id="loadLogo">
+      <svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgSunB" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0" stop-color="#ff5148"/><stop offset="1" stop-color="#ffb454"/>
+          </linearGradient>
+        </defs>
+        <path d="M124 104 A46 46 0 0 1 216 104 Z" fill="url(#lgSunB)"/>
+        <rect x="14" y="104" width="212" height="7" rx="3.5" fill="#ffb454"/>
+        <path d="M50 104 L54 90 L70 86 L82 70 L112 66 L126 82 L142 88 L156 92 L158 104 Z" fill="#f7efe4"/>
+        <circle cx="72" cy="104" r="10" fill="#1a1216"/>
+        <circle cx="134" cy="104" r="10" fill="#1a1216"/>
+        <circle cx="72" cy="104" r="4" fill="#f7efe4"/>
+        <circle cx="134" cy="104" r="4" fill="#f7efe4"/>
+      </svg>
+    </div>
+    <div id="loadTxt">LOADING</div>
+  </div>
+</div>
+
+<div id="update" class="center hiddenOv">
+  <div class="cPanel">
+    <div id="updBadge">GAME UPDATER</div>
+    <h2 id="updTitle">UPDATE AVAILABLE</h2>
+    <div id="updVer">—</div>
+    <div id="updNotes"></div>
+    <button class="bigBtn" id="updGo">DOWNLOAD UPDATE</button>
+    <button class="smlBtn" id="updSkip">PLAY OLD VERSION</button>
+    <div id="updReq" style="display:none;">THIS UPDATE IS REQUIRED — OLD VERSIONS CAN'T JOIN SESSIONS</div>
+  </div>
+</div>
 
 <div id="hud">
   <div id="ri" class="panel">
@@ -282,7 +353,7 @@ input[type=range]{ width:100%; accent-color:var(--amber); height:18px; }
 <div id="fatal"></div>
 
 <script>
-window.__BUILD='R10';
+window.__BUILD='R12';
 window.__booted=false;
 window.__fatal=function(m){ var f=document.getElementById('fatal'); if(!f)return; f.textContent='[BUILD '+window.__BUILD+'] '+m; f.style.display='block'; };
 function __diag(msg){
@@ -295,7 +366,7 @@ function __diag(msg){
 }
 window.addEventListener('error',function(e){
   var m=(e.message||'unknown')+(e.lineno?' (near line '+e.lineno+')':'');
-  if(!window.__booted) window.__fatal('STARTUP ERROR: '+m+' — make sure the tab title says R10 and hard-refresh (Ctrl+F5). Otherwise send me this exact text.');
+  if(!window.__booted) window.__fatal('STARTUP ERROR: '+m+' — make sure the tab title says R12 and hard-refresh (Ctrl+F5). Otherwise send me this exact text.');
   else __diag(m);
 });
 </script>
@@ -340,6 +411,58 @@ function K(obj){ SHARED.add(obj); return obj; }
 
 /* Rome street grid — GLOBAL constants */
 const STREET=82, GRIDK=6, CITY_EDGE=GRIDK*STREET+9, CITY_BOUND=CITY_EDGE+7;
+
+/* ================================================================
+   PATCH / UPDATE SYSTEM (dormant until PATCH.url is set — safe to ignore;
+   your GitHub Pages link already serves the latest build to everyone)
+   ================================================================ */
+const PATCH={
+  ver: 12,
+  verName: 'R12',
+  url: '',
+  dl: '',
+  notes: ['New studio logo — menu, loading screen and browser tab','Fixed patch-notes "+" marker']
+};
+function checkForUpdates(){
+  const st=$('menuStatus');
+  if(!PATCH.url){
+    st.textContent='SYSTEMS READY — BUILD '+window.__BUILD+' · LIVE ON GITHUB PAGES · ENGINE: '+(window.__threeSrc||'CDN');
+    return;
+  }
+  const ctl=(typeof AbortController!=='undefined')?new AbortController():null;
+  const to=setTimeout(()=>{ if(ctl) ctl.abort(); },6000);
+  fetch(PATCH.url+'?t='+Date.now(),{cache:'no-store',signal:ctl?ctl.signal:undefined})
+    .then(r=>{ clearTimeout(to); if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+    .then(m=>{
+      if(m&&typeof m.version==='number'&&m.version>PATCH.ver){
+        showUpdatePanel(m);
+      }else{
+        st.textContent='SYSTEMS READY — BUILD '+window.__BUILD+' · UP TO DATE · ENGINE: '+(window.__threeSrc||'CDN');
+      }
+    })
+    .catch(()=>{
+      clearTimeout(to);
+      st.textContent='SYSTEMS READY — BUILD '+window.__BUILD+' · UPDATER OFFLINE (SOLO OK) · ENGINE: '+(window.__threeSrc||'CDN');
+    });
+}
+function showUpdatePanel(m){
+  $('updTitle').textContent='UPDATE AVAILABLE';
+  $('updVer').textContent='v'+(m.name||('BUILD '+m.version))+'  \u2192  you have v'+PATCH.verName;
+  const notes=(Array.isArray(m.notes)&&m.notes.length)?m.notes:PATCH.notes;
+  const box=$('updNotes'); box.innerHTML='';
+  notes.slice(0,8).forEach(n=>{
+    const d=document.createElement('div'); d.className='updRow'; d.textContent=n; box.appendChild(d);
+  });
+  $('updSkip').style.display=m.required?'none':'block';
+  $('updReq').style.display=m.required?'block':'none';
+  $('update').classList.remove('hiddenOv');
+  $('updGo').onclick=()=>{ initAudio(); blip(880,0.16,'sine',0.14);
+    window.open(m.download||PATCH.dl,'_blank');
+    toast('OPENING THE NEW VERSION — REPLACE YOUR OLD FILE'); };
+  $('updSkip').onclick=()=>{ initAudio(); $('update').classList.add('hiddenOv');
+    toast('RUNNING v'+PATCH.verName+' — SOME CONTENT MAY BE MISSING'); };
+  blip(520,0.2,'triangle',0.14);
+}
 
 /* ================================================================ save / economy */
 const DEFAULT_SAVE={ bal:50000, owned:['hatch'], active:'hatch', mods:{}, best:{rome:0,hor:0}, conn:'online' };
@@ -1982,21 +2105,19 @@ function selLocClass(){
  $('connOff').onclick=()=>{ sel.conn='offline'; SAVE.conn='offline'; persist(); selLocClass(); };
  $('btnGarage').onclick=()=>{ initAudio(); toGarage(); };
 
-/* R10: self-replicating share button — writes a pristine copy of this exact
-   game to the user's Downloads folder, ready to send to anyone. */
+/* share button — writes a pristine copy of this exact game (logo + favicon included) */
 function shareGame(){
   try{
     const root=document.documentElement.cloneNode(true);
     const q=id=>root.querySelector('#'+id);
-    /* reset dynamic DOM to pristine boot state inside the CLONE (live page untouched) */
     const show=(id,on)=>{ const el=q(id); if(el) el.classList.toggle('hiddenOv',!on); };
     show('menu',true); show('garage',false); show('load',false);
-    show('pause',false); show('ttres',false);
+    show('pause',false); show('ttres',false); show('update',false);
     const hud=q('hud'); if(hud) hud.classList.remove('on');
     const nc=q('netChip'); if(nc) nc.style.display='none';
     const dg=q('diag'); if(dg) dg.style.display='none';
     const ft=q('fatal'); if(ft) ft.style.display='none';
-    for(const id of ['toasts','rpm','bassBars','catalog','priceRow','swPaint','rimRow','rimSw']){
+    for(const id of ['toasts','rpm','bassBars','catalog','priceRow','swPaint','rimRow','rimSw','updNotes']){
       const el=q(id); if(el) el.innerHTML='';
     }
     const bm=q('bigMsg'); if(bm) bm.classList.remove('pop');
@@ -2008,7 +2129,7 @@ function shareGame(){
     a.download='SUNCHASER-OW.html';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(()=>URL.revokeObjectURL(a.href),3000);
-    toast('GAME FILE DOWNLOADED — SEND SUNCHASER-OW.html TO ANYONE');
+    toast('GAME FILE DOWNLOADED — LOGO INCLUDED');
     blip(880,0.18,'sine',0.14);
   }catch(e){
     window.__fatal('SHARE FAILED: '+(e.message||e));
@@ -2585,7 +2706,7 @@ sel.conn=SAVE.conn;
 setShowCar(SAVE.active,SAVE.mods[SAVE.active]);
 refreshMenuFoot(); selLocClass(); radioRefresh();
 state='menu';
- $('menuStatus').textContent='SYSTEMS READY — BUILD '+window.__BUILD+' · USE SHARE TO GIVE THE GAME TO FRIENDS · ENGINE: '+(window.__threeSrc||'CDN');
+checkForUpdates();
 window.__booted=true;
 requestAnimationFrame(safeTick);
 }
